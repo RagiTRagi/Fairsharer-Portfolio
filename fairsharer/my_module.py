@@ -1,29 +1,13 @@
 """Documentation about the fairsharer module."""
 
 
-# FIXME: put actual code here
-def hello(name):
-    """Say hello.
+def fair_sharer(values, num_iterations, share=0.1):
+    for i in range(num_iterations):
+        max_value = max(values)
+        index_max = values.index(max_value)
+        share_amount = max_value * share
+        values[index_max] -= share_amount * 2
+        values[index_max - 1] += share_amount
+        values[(index_max + 1) % len(values)] += share_amount
+    return values
 
-    Function docstring using Google docstring style.
-
-    Args:
-        name (str): Name to say hello to
-
-    Returns:
-        str: Hello message
-
-    Raises:
-        ValueError: If `name` is equal to `nobody`
-
-    Example:
-        This function can be called with `Jane Smith` as argument using
-
-        >>> from fairsharer.my_module import hello
-        >>> hello('Jane Smith')
-        'Hello Jane Smith!'
-
-    """
-    if name == "nobody":
-        raise ValueError("Cannot say hello to nobody")
-    return f"Hello {name}!"
