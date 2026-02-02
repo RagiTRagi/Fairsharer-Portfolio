@@ -1,6 +1,3 @@
-"""Documentation about the fairsharer module."""
-
-
 def fair_sharer(values, num_iterations, share=0.1):
     """
     In each iteration, the maximum value in the list shares a portion of its value
